@@ -1,10 +1,10 @@
-import os, sqlite3, math, re, hashlib
+import os, sqlite3, math, re, hashlib, tempfile
 from datetime import date, timedelta
 from flask import Flask, render_template, jsonify, request
 
 app = Flask(__name__)
 ROOT = os.path.dirname(os.path.abspath(__file__))
-DB_PATH = os.path.join('/tmp', f'medsupply-demo-{os.getpid()}.db') if os.getenv('VERCEL') else os.path.join(ROOT, 'demo.db')
+DB_PATH = os.path.join(tempfile.gettempdir(), f'medsupply-demo-{os.getpid()}.db') if os.getenv('VERCEL') else os.path.join(ROOT, 'demo.db')
 TODAY = date.today()
 
 SCHEMA = [
