@@ -1,0 +1,6 @@
+__pycache__/
+*.pyc
+.venv/
+demo.db
+.env
+db2_seed.sql
